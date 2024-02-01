@@ -1,8 +1,10 @@
-package seminars.vetClinicProject;
+package seminars.vetClinicProject.classesAnimals;
 
 import java.time.LocalDate;
 
-public class Animal {
+import seminars.vetClinicProject.Illness;
+
+public abstract class Animal {
     protected String name;
     protected LocalDate birthday;
     protected Illness illness;
@@ -44,15 +46,7 @@ public class Animal {
         // cat.wakeUp("10:00");
     }
 
-    public void fly() {
-        System.out.println(getType() + " летает");
-    }
-    public void swim() {
-        System.out.println(getType() + " плавает");
-    }
-    public void toGo() {
-        System.out.println(getType() + " передвигается");
-    }
+    public abstract void Eat();
 
     // gets
     public String getName() {

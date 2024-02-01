@@ -1,6 +1,8 @@
-package seminars.vetClinicProject;
+package seminars.vetClinicProject.classesAnimals;
 
 import java.time.LocalDate;
+
+import seminars.vetClinicProject.Illness;
 
 public class FlyingFish extends Animal {
     private int wingQuantity;
@@ -20,4 +22,6 @@ public class FlyingFish extends Animal {
     public void toGo() {
         System.out.println(getType() + " не умеет ходить");
     }
+    @Override
+    public void Eat() {}
 }

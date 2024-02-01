@@ -1,6 +1,8 @@
-package seminars.vetClinicProject;
+package seminars.vetClinicProject.classesAnimals;
 
 import java.time.LocalDate;
+
+import seminars.vetClinicProject.Illness;
 
 public class Hippopotamus extends Animal {
     public Hippopotamus(String name, LocalDate birthday, Illness illness) {
@@ -10,4 +12,6 @@ public class Hippopotamus extends Animal {
     public void fly() {
         System.out.println(getType() + " не умеет летать");
     }
+    @Override
+    public void Eat() {}
 }

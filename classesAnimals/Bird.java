@@ -1,6 +1,8 @@
-package seminars.vetClinicProject;
+package seminars.vetClinicProject.classesAnimals;
 
 import java.time.LocalDate;
+
+import seminars.vetClinicProject.Illness;
 
 public class Bird extends Animal {
     private int wingQuantity;
@@ -18,4 +20,6 @@ public class Bird extends Animal {
     public void swim() {
         System.out.println(getType() + " не умеет плавать");
     }
+    @Override
+    public void Eat() {}
 }

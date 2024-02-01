@@ -1,6 +1,8 @@
-package seminars.vetClinicProject;
+package seminars.vetClinicProject.classesAnimals;
 
 import java.time.LocalDate;
+
+import seminars.vetClinicProject.Illness;
 
 public class Cow extends Animal {
     public Cow(String name, LocalDate birthday, Illness illness) {
@@ -10,4 +12,6 @@ public class Cow extends Animal {
     public void fly() {
         System.out.println(getType() + " не умеет летать");
     }
+    @Override
+    public void Eat() {}
 }
