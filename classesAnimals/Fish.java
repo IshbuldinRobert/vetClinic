@@ -3,26 +3,26 @@ package seminars.vetClinicProject.classesAnimals;
 import java.time.LocalDate;
 
 import seminars.vetClinicProject.Illness;
+import seminars.vetClinicProject.interfaces.Swimable;
+import seminars.vetClinicProject.staff.Doctor;
 
-public class Fish extends Animal {
+public class Fish extends Animal implements Swimable {
     private int flippersQuantity;
 
-    public Fish(String name, LocalDate birthday, Illness illness, int flippersQuantity) {
-        super(name, birthday, illness);
+    public Fish(String name, LocalDate birthday, Illness illness, int flippersQuantity, Doctor doctor) {
+        super(name, birthday, illness, doctor);
         this.flippersQuantity = flippersQuantity;
     }
-    @Override
-    public void fly() {
-        System.out.println(getType() + " не умеет летать");
+    public Fish() {
+        super();
     }
+
     @Override
-    public void toGo() {
-        System.out.println(getType() + " не умеет ходить");
+    public double swim() {
+        return 7;
     }
     @Override
     public String toString() {
         return String.format("name: %s, birthday: %s, illness: %s, flippersQuantity: %d", name, birthday, illness, flippersQuantity);
     }
-    @Override
-    public void Eat() {}
 }

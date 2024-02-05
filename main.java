@@ -1,103 +1,64 @@
 package seminars.vetClinicProject;
 import seminars.vetClinicProject.classesAnimals.*;
-import seminars.vetClinicProject.interfaces.*;
+import seminars.vetClinicProject.staff.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class main {
     public static void main(String[] args) {
-        // Animal cat = new Cat("Вася", LocalDate.of(2002, 6, 11), new Illness("Лишай"));
-        // // System.out.println(cat.getName());
-        // // cat.setIllness(new Illness(null));
-        // // System.out.println(cat.getIllness());
-        // // System.out.println();
+        List<Animal> animals = new ArrayList<>();
+        List<Doctor> doctors = new ArrayList<>();
+        List<Nurse> nurses = new ArrayList<>();
 
-        // Animal dog = new Dog("Rex", LocalDate.of(2000, 8, 12), new Illness(null));
-        // // System.out.println(dog.getName());
-        // // System.out.println(dog.getType());
-        // // System.out.println();
+        nurses.add(new Nurse("Иванова", "Наталья"));
+        nurses.add(new Nurse("Петрова", "Мария"));
+        nurses.add(new Nurse("Власова", "Валерия"));
 
-        // Animal bird = new Bird("Кеша", LocalDate.now(), new Illness(null), 2);
-        // // System.out.println(bird.getName());
-        // // System.out.println(bird.getType());
+        doctors.add(new Doctor("Воронцов", "Иван", nurses.get(0)));
+        doctors.add(new Doctor("Склифосовский", "Петр", nurses.get(1)));
+        doctors.add(new Doctor("Макротин", "Федор", nurses.get(2)));
 
-        // List<Animal> list = new ArrayList<>();
-        // list.add(dog);
-        // list.add(cat);
-        // list.add(new Bird("rrr", LocalDate.now(), null, 4));
-        // // for (Animal animal : list) {
-        // //     System.out.println(animal);
-        // // }
+        animals.add(new Bat("Летучая мышь", LocalDate.now(), null, doctors.get(0)));
+        animals.add(new Bird("Птица", LocalDate.now(), null, 2, doctors.get(1)));
+        animals.add(new Cat("Кошка", LocalDate.now(), null, doctors.get(2)));
+        animals.add(new Cow("Корова", LocalDate.now(), null, doctors.get(0)));
+        animals.add(new Dog("Собака", LocalDate.now(), null, doctors.get(1)));
+        animals.add(new Hippopotamus("Гиппопотам", LocalDate.now(), null, doctors.get(2)));
+        animals.add(new Otter("Выдра", LocalDate.now(), null, doctors.get(0)));
+        animals.add(new Fish("Рыба", LocalDate.now(), null, 4, doctors.get(1)));
+        animals.add(new FlyingFish("Летучая рыба", LocalDate.now(), null, 4, 4, doctors.get(2)));
+        animals.add(new Swan("Лебедь", LocalDate.now(), null, doctors.get(0)));
 
-        // // bird.wakeUp();
-        // // cat.hunt();
-        // // dog.eat();
-        // // dog.sleep();
+        // System.out.println("Летающие");
+        // System.out.println("Bat летит со скоростью " + ((Bat)(animals.get(0))).fly());
+        // System.out.println("Bird летит со скоростью " + ((Bird)(animals.get(1))).fly());
+        // System.out.println("FlyingFish летит со скоростью " + ((FlyingFish)(animals.get(8))).fly());
+        // System.out.println("Ходячие");
+        // System.out.println("Cat идет со скоростью " + ((Cat)(animals.get(2))).go());
+        // System.out.println("Cow идет со скоростью " + ((Cow)(animals.get(3))).go());
+        // System.out.println("Dog идет со скоростью " + ((Dog)(animals.get(4))).go());
+        // System.out.println("Плавающие");
+        // System.out.println("Otter плавает со скоростью " + ((Otter)(animals.get(6))).swim());
+        // System.out.println("Fish плавает со скоростью " + ((Fish)(animals.get(7))).swim());
+        // System.out.println("FlyingFish плавает со скоростью " + ((FlyingFish)(animals.get(8))).swim());
+        
+        VeterinaryClinic vetClinik = new VeterinaryClinic();
+        System.out.printf("\nЛетающие: %s", String.join(", ", vetClinik.getFlying(animals)));
+        System.out.printf("\nПлавающие: %s", String.join(", ", vetClinik.getSwimable(animals)));
+        System.out.printf("\nБегающие: %s", String.join(", ", vetClinik.getGoable(animals)));
+        System.out.println();
 
-        // // cat.sleep(cat.getName());
-        // // cat.wakeUp("10:00");
-        // // dog.live();
-        // // dog.fly();
-        // // bird.swim();
+        System.out.print("\nДоктора и пациенты");
+        System.out.printf("\nВоронцов: %s", String.join(", ", doctors.get(0).getPatients(animals)));
+        System.out.printf("\nСклифосовский: %s", String.join(", ", doctors.get(1).getPatients(animals)));
+        System.out.printf("\nМакротин: %s", String.join(", ", doctors.get(2).getPatients(animals)));
+        System.out.println("\n");
 
-        // Bat bat = new Bat("Hucky", LocalDate.now(), new Illness("ОРВ"));
-        // FlyingFish flyingFish = new FlyingFish("Gury", LocalDate.now(), new Illness("ОРВ"), 4, 4);
-
-        // Cow cow = new Cow("Люся", LocalDate.now(), new Illness("Свиной грипп"));
-        // Hippopotamus gloriya = new Hippopotamus("Глория", LocalDate.now(), new Illness("Бешенство"));
-
-        // Otter otter = new Otter("Няшка", LocalDate.now(), new Illness("Грипп"));
-        // Fish fish = new Fish("Рыбка", LocalDate.now(), new Illness(null), 4);
-
-        // // bat.swim();
-        // // bat.fly();
-        // // flyingFish.toGo();
-        // // flyingFish.swim();
-        // // System.out.println();
-        // // cow.fly();
-        // // cow.toGo();
-        // // gloriya.fly();
-        // // gloriya.swim();
-        // // System.out.println();
-        // // otter.fly();
-        // // otter.toGo();
-        // // fish.toGo();
-        // // fish.swim();
-
-        // List<Goable> goables = new ArrayList<>();
-        // goables.add(new Cat());
-        // goables.add(new Dog());
-        // for (Goable goable : goables) {
-        //     System.out.println(((Animal) goable).getName());
-        // }
-
-        // goables.get(0).defaultGo(2);
-        // goables.get(1).defaultGo(9.9);
-
-        // Goable goable = () -> 0;
-        // Goable goable1 = () -> 19;
-
-        // Mathable m = (a, b) -> a + b;
-        // Mathable m2 = (x, y) -> x + y;
-
-        // Mathable m = new Mathable() {
-        //     @Override
-        //     public double multiply(double a, double b) {
-        //         // TODO Auto-generated method stub
-        //         return 0;
-        //     }
-        //     @Override
-        //     public double addition(double a, double b) {
-        //         // TODO Auto-generated method stub
-        //         return 0;
-        //     }
-        // };
-
-        animals.add(new Bat());
-        animals.get(0).fly();
+        System.out.println("Доктора");
+        vetClinik.getDoctors(doctors);
+        System.out.println("Медсестры");
+        vetClinik.getNurses(nurses);
     }
 }

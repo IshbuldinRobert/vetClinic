@@ -6,19 +6,23 @@ import seminars.vetClinicProject.Illness;
 import seminars.vetClinicProject.interfaces.*;
 import seminars.vetClinicProject.staff.Doctor;
 
-public class Dog extends Animal implements Goable, Swimable {
-    public Dog(String name, LocalDate birthday, Illness illness, Doctor doctor) {
+public class Swan extends Animal implements Flyable, Goable, Swimable {
+    public Swan(String name, LocalDate birthday, Illness illness, Doctor doctor) {
         super(name, birthday, illness, doctor);
     }
-    public Dog() {
+    public Swan() {
         super();
     }
     @Override
     public double go() {
-        return 7;
+        return 5;
     }
     @Override
     public double swim() {
         return 3;
+    }
+    @Override
+    public double fly() {
+        return 7;
     }
 }

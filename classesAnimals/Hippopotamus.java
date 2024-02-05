@@ -3,15 +3,25 @@ package seminars.vetClinicProject.classesAnimals;
 import java.time.LocalDate;
 
 import seminars.vetClinicProject.Illness;
+import seminars.vetClinicProject.interfaces.Goable;
+import seminars.vetClinicProject.interfaces.Swimable;
+import seminars.vetClinicProject.staff.Doctor;
 
-public class Hippopotamus extends Animal {
-    public Hippopotamus(String name, LocalDate birthday, Illness illness) {
-        super(name, birthday, illness);
+public class Hippopotamus extends Animal implements Goable, Swimable {
+    public Hippopotamus(String name, LocalDate birthday, Illness illness, Doctor doctor) {
+        super(name, birthday, illness, doctor);
     }
-    @Override
-    public void fly() {
-        System.out.println(getType() + " не умеет летать");
+    public Hippopotamus() {
+        super();
     }
+
     @Override
-    public void Eat() {}
+    public double swim() {
+        return 4;
+    }
+
+    @Override
+    public double go() {
+        return 5;
+    }
 }
